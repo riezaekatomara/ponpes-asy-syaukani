@@ -2,357 +2,343 @@ import {
   School, 
   Target, 
   Eye, 
-  Award,
-  Users,
+  Heart,
   BookOpen,
+  Users,
+  Award,
   Building2,
-  Wifi,
-  Bed,
   Utensils,
+  Bed,
   Library,
+  Wifi,
+  Bus,
   Globe,
-  Heart
+  CheckCircle,
+  Sparkles
 } from 'lucide-react';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
+import CTASection from '../components/common/CTASection';
+import { Link } from 'react-router-dom';
 
 const Profil = () => {
   
-  const sejarah = [
-    {
-      year: '2008',
-      title: 'Pendirian Ponpes',
-      description: 'Pondok Pesantren Asy-Syaukani didirikan oleh KH. Abdullah Ahmad dengan 20 santri pertama'
-    },
-    {
-      year: '2012',
-      title: 'Akreditasi A',
-      description: 'Mendapatkan akreditasi A dari Kementerian Agama RI untuk tingkat Madrasah Tsanawiyah'
-    },
-    {
-      year: '2015',
-      title: 'Ekspansi Fasilitas',
-      description: 'Pembangunan gedung asrama baru dan perpustakaan modern dengan kapasitas 300 santri'
-    },
-    {
-      year: '2020',
-      title: 'Program Digital',
-      description: 'Meluncurkan program pembelajaran digital dan sistem pendaftaran online'
-    },
-    {
-      year: '2024',
-      title: '500+ Santri',
-      description: 'Mencapai milestone 500+ santri aktif dengan 50+ tenaga pengajar berkualitas'
-    }
-  ];
-
-  const visiMisi = {
-    visi: 'Menjadi lembaga pendidikan Islam terkemuka yang menghasilkan generasi Qur\'ani, berakhlak mulia, dan berprestasi dalam bidang agama dan umum.',
-    misi: [
-      'Menyelenggarakan pendidikan Islam yang berkualitas dan modern',
-      'Membentuk santri yang hafal Al-Qur\'an 30 juz dengan pemahaman yang mendalam',
-      'Mengembangkan kemampuan berbahasa Arab dan Inggris secara aktif',
-      'Membiasakan akhlakul karimah dalam kehidupan sehari-hari',
-      'Mengintegrasikan pendidikan formal dan non-formal secara seimbang',
-      'Mempersiapkan santri untuk melanjutkan ke jenjang pendidikan tinggi'
-    ]
-  };
-
-  const prestasi = [
-    {
-      icon: Award,
-      title: 'Juara 1 MTQ Tingkat Provinsi',
-      year: '2023',
-      category: 'Tahfidz 30 Juz'
-    },
-    {
-      icon: Award,
-      title: 'Best Islamic School',
-      year: '2023',
-      category: 'Bengkulu Award'
-    },
-    {
-      icon: Award,
-      title: 'Juara 2 Debat Bahasa Arab',
-      year: '2022',
-      category: 'Tingkat Nasional'
-    },
-    {
-      icon: Award,
-      title: '95% Kelulusan SBMPTN',
-      year: '2024',
-      category: 'Alumni Berprestasi'
-    }
-  ];
-
-  const struktur = [
-    {
-      name: 'KH. Abdullah Ahmad',
-      position: 'Pengasuh / Mudir',
-      photo: 'bg-gradient-to-br from-primary-500 to-primary-700'
-    },
-    {
-      name: 'Ustadz Dr. Muhammad Hasan',
-      position: 'Wakil Mudir Bidang Akademik',
-      photo: 'bg-gradient-to-br from-accent-400 to-accent-600'
-    },
-    {
-      name: 'Ustadzah Siti Aminah, M.Pd',
-      position: 'Wakil Mudir Bidang Kesiswaan',
-      photo: 'bg-gradient-to-br from-gold-500 to-gold-700'
-    },
-    {
-      name: 'Ustadz Ahmad Fauzi, S.Pd.I',
-      position: 'Kepala Bagian Tahfidz',
-      photo: 'bg-gradient-to-br from-primary-400 to-accent-500'
-    }
-  ];
-
-  const fasilitas = [
+  const facilities = [
     {
       icon: Building2,
-      title: 'Asrama Nyaman',
-      description: 'Asrama putra dan putri terpisah dengan kapasitas 300+ santri dilengkapi AC dan kamar mandi dalam'
+      name: 'Asrama Nyaman',
+      description: 'Asrama putra dan putri terpisah dengan fasilitas lengkap',
+      color: 'text-primary-500'
+    },
+    {
+      icon: BookOpen,
+      name: 'Ruang Kelas Modern',
+      description: 'Kelas ber-AC dengan LCD proyektor dan whiteboard',
+      color: 'text-accent-500'
     },
     {
       icon: Library,
-      title: 'Perpustakaan Modern',
-      description: 'Koleksi 5000+ buku, ruang baca ber-AC, dan akses digital library untuk menunjang pembelajaran'
-    },
-    {
-      icon: Wifi,
-      title: 'Internet & WiFi',
-      description: 'Koneksi internet berkecepatan tinggi di seluruh area untuk mendukung pembelajaran digital'
-    },
-    {
-      icon: School,
-      title: 'Ruang Kelas Ber-AC',
-      description: '20+ ruang kelas modern dengan fasilitas LCD proyektor dan sound system'
+      name: 'Perpustakaan',
+      description: 'Koleksi buku Islam dan umum yang lengkap',
+      color: 'text-secondary-500'
     },
     {
       icon: Utensils,
-      title: 'Dapur & Kantin',
-      description: 'Penyediaan makan 3x sehari dengan menu bergizi dan sehat, kantin dengan harga terjangkau'
+      name: 'Kantin & Dapur',
+      description: 'Makan 3x sehari dengan menu sehat dan bergizi',
+      color: 'text-primary-500'
     },
     {
-      icon: Bed,
-      title: 'Tempat Tidur Nyaman',
-      description: 'Tempat tidur bertingkat dengan kasur empuk, lemari pribadi, dan area belajar individual'
+      icon: Wifi,
+      name: 'Internet & WiFi',
+      description: 'Akses internet berkecepatan tinggi untuk pembelajaran',
+      color: 'text-accent-500'
+    },
+    {
+      icon: Bus,
+      name: 'Transportasi',
+      description: 'Akses mudah ke berbagai fasilitas umum',
+      color: 'text-secondary-500'
     },
     {
       icon: Heart,
-      title: 'Klinik Kesehatan',
-      description: 'Layanan kesehatan 24 jam dengan tenaga medis profesional dan obat-obatan lengkap'
+      name: 'Fasilitas Kesehatan',
+      description: 'Puskesmas Cicantayan 8 menit, RS terdekat 15 menit',
+      color: 'text-primary-500'
     },
     {
+      icon: Award,
+      name: 'Fasilitas Olahraga',
+      description: 'Lapangan basket, futsal, dan area olahraga lainnya',
+      color: 'text-accent-500'
+    }
+  ];
+
+  const achievements = [
+    {
+      title: 'Terakreditasi A (BAN-SM)',
+      description: 'Akreditasi dari Badan Akreditasi Nasional Sekolah/Madrasah',
+      year: '2024',
+      icon: Award,
+      color: 'bg-accent-100 text-accent-600'
+    },
+    {
+      title: 'Kerjasama Internasional',
+      description: 'Bekerjasama dengan universitas Islam di 3 benua',
+      year: '2023',
       icon: Globe,
-      title: 'Laboratorium Bahasa',
-      description: 'Lab bahasa Arab dan Inggris dengan peralatan modern untuk praktik speaking dan listening'
+      color: 'bg-primary-100 text-primary-600'
+    },
+    {
+      title: 'Kurikulum Terpadu',
+      description: 'Sistem Rabbani, Cendekia, dan Mandiri yang efektif',
+      year: '2022',
+      icon: BookOpen,
+      color: 'bg-secondary-100 text-secondary-600'
+    }
+  ];
+
+  const curriculum = [
+    {
+      title: 'Rabbani',
+      description: 'Fokus pada pembentukan karakter Islami, tahfidz Al-Qur\'an, dan pemahaman agama yang mendalam',
+      features: ['Tahfidz Al-Qur\'an', 'Kajian Kitab Kuning', 'Akhlakul Karimah', 'Ibadah Yaumiyah'],
+      icon: BookOpen,
+      color: 'from-primary-500 to-primary-700'
+    },
+    {
+      title: 'Cendekia',
+      description: 'Pengembangan ilmu pengetahuan umum sesuai kurikulum nasional dengan standar internasional',
+      features: ['Matematika', 'IPA & IPS', 'Bahasa Indonesia', 'Literasi Digital'],
+      icon: Users,
+      color: 'from-accent-400 to-accent-600'
+    },
+    {
+      title: 'Mandiri',
+      description: 'Pembentukan kemandirian, life skills, dan kesiapan menghadapi tantangan masa depan',
+      features: ['Leadership', 'Public Speaking', 'Kewirausahaan', 'Problem Solving'],
+      icon: Sparkles,
+      color: 'from-secondary-500 to-secondary-700'
     }
   ];
 
   return (
     <div className="bg-white">
       
-      {/* Header Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-50 via-white to-accent-50 overflow-hidden">
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230b8f55' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="primary" size="lg" className="mb-4">
-            <School className="w-4 h-4" />
-            Profil Pondok Pesantren
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800">
+        {/* Pattern Background */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} aria-hidden="true"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <Badge variant="accent" size="lg" className="mb-6 bg-white/20 backdrop-blur-sm text-white border-white/30">
+            <School className="w-5 h-5" />
+            Profil Pesantren
           </Badge>
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Tentang <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-400">Asy-Syaukani</span>
+          
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Pesantren Ulul Albaab Sukabumi
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Mengenal lebih dekat Pondok Pesantren Asy-Syaukani, sejarah, visi misi, prestasi, dan fasilitas yang kami miliki
+          
+          <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto mb-8">
+            Lembaga Pendidikan Islam Modern dengan Kurikulum Terpadu Rabbani, Cendekia, dan Mandiri
           </p>
-        </div>
-      </section>
 
-      {/* Sejarah Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <Badge variant="primary" size="lg" className="mb-4">
-              <BookOpen className="w-4 h-4" />
-              Sejarah
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Badge variant="accent" size="md" className="bg-white/10 backdrop-blur-sm text-white border-white/20">
+              Terakreditasi A
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Perjalanan Kami
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Dari 20 santri pertama hingga menjadi salah satu pondok pesantren terkemuka di Bengkulu
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary-500 to-accent-400 hidden md:block"></div>
-
-            {/* Timeline Items */}
-            <div className="space-y-12">
-              {sejarah.map((item, index) => (
-                <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col gap-8`}>
-                  {/* Content */}
-                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <Card variant="shadow" className="hover:scale-105 transition-transform duration-300">
-                      <div className="space-y-3">
-                        <Badge variant="primary">{item.year}</Badge>
-                        <h3 className="text-2xl font-bold text-gray-800">{item.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                      </div>
-                    </Card>
-                  </div>
-
-                  {/* Circle */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary-500 border-4 border-white rounded-full shadow-lg z-10"></div>
-
-                  {/* Spacer */}
-                  <div className="w-full md:w-5/12"></div>
-                </div>
-              ))}
-            </div>
+            <Badge variant="accent" size="md" className="bg-white/10 backdrop-blur-sm text-white border-white/20">
+              Managed By Al-Andalus
+            </Badge>
+            <Badge variant="accent" size="md" className="bg-white/10 backdrop-blur-sm text-white border-white/20">
+              Kerjasama 3 Benua
+            </Badge>
           </div>
         </div>
       </section>
 
       {/* Visi Misi Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-primary-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-12">
             
             {/* Visi */}
-            <Card variant="gradient" className="space-y-6">
-              <div className="flex items-center gap-4">
+            <Card variant="gradient" hover={true} className="relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/10 rounded-full blur-3xl" aria-hidden="true"></div>
+              
+              <div className="relative space-y-6">
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg">
-                  <Eye className="w-8 h-8 text-primary-500" />
+                  <Eye className="w-8 h-8 text-primary-600" aria-hidden="true" />
                 </div>
+                
                 <div>
-                  <Badge variant="primary" className="mb-2">Visi</Badge>
-                  <h3 className="text-3xl font-bold text-gray-800">Visi Kami</h3>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Visi</h2>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    Menjadi lembaga pendidikan Islam terkemuka yang menghasilkan generasi Qur'ani yang berakhlak mulia, berilmu luas, dan bermanfaat bagi umat.
+                  </p>
+                </div>
+                
+                <div className="flex items-center gap-2 pt-4 border-t border-gray-200">
+                  <CheckCircle className="w-5 h-5 text-primary-500" aria-hidden="true" />
+                  <span className="text-sm font-medium text-gray-600">Managed By Al-Andalus Management</span>
                 </div>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                {visiMisi.visi}
-              </p>
             </Card>
 
             {/* Misi */}
-            <Card variant="shadow" className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-400 rounded-2xl flex items-center justify-center shadow-lg">
-                  <Target className="w-8 h-8 text-white" />
+            <Card variant="shadow" hover={true}>
+              <div className="space-y-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 rounded-2xl flex items-center justify-center shadow-lg">
+                  <Target className="w-8 h-8 text-white" aria-hidden="true" />
                 </div>
+                
                 <div>
-                  <Badge variant="accent" className="mb-2">Misi</Badge>
-                  <h3 className="text-3xl font-bold text-gray-800">Misi Kami</h3>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Misi</h2>
+                  <ul className="space-y-3">
+                    {[
+                      'Menyelenggarakan pendidikan Islam terpadu yang berkualitas',
+                      'Membentuk generasi Qur\'ani yang hafal dan memahami Al-Qur\'an',
+                      'Mengembangkan potensi akademik dan non-akademik santri',
+                      'Membangun karakter Islami yang kuat dan berakhlak mulia',
+                      'Mempersiapkan santri yang mandiri dan siap menghadapi masa depan'
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <ul className="space-y-4">
-                {visiMisi.misi.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-primary-600 font-bold text-sm">{index + 1}</span>
-                    </div>
-                    <span className="text-gray-700 leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Prestasi Section */}
-      <section className="py-20 bg-white">
+      {/* Curriculum Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-primary-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <Badge variant="gold" size="lg" className="mb-4">
-              <Award className="w-4 h-4" />
-              Prestasi
+            <Badge variant="primary" size="lg" className="mb-4">
+              <BookOpen className="w-5 h-5" />
+              Kurikulum Terpadu
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Prestasi Yang Membanggakan
+              Sistem Rabbani, Cendekia, dan Mandiri
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Berbagai penghargaan yang telah diraih oleh santri dan lembaga kami
+              Integrasi pendidikan agama, akademik, dan life skills yang komprehensif
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {prestasi.map((item, index) => (
-              <Card key={index} variant="default" className="text-center group hover:scale-105 transition-transform duration-300">
-                <div className="w-16 h-16 bg-gold-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                  <item.icon className="w-8 h-8 text-gold-600" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {curriculum.map((item, index) => (
+              <Card key={index} variant="default" hover={true} className="group">
+                <div className={`h-48 bg-gradient-to-br ${item.color} rounded-xl mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
+                  <item.icon className="w-16 h-16 text-white" aria-hidden="true" />
                 </div>
-                <Badge variant="gold" size="sm" className="mb-3">{item.year}</Badge>
-                <h3 className="font-bold text-lg text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.category}</p>
+                
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{item.description}</p>
+                
+                <div className="space-y-2">
+                  {item.features.map((feature, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary-500" aria-hidden="true" />
+                      <span className="text-sm text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Struktur Organisasi */}
+      {/* Facilities Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" size="lg" className="mb-4">
+              <Building2 className="w-5 h-5" />
+              Fasilitas Lengkap
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Sarana & Prasarana
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Fasilitas modern yang mendukung pembelajaran optimal
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {facilities.map((facility, index) => (
+              <Card key={index} variant="default" hover={true} className="text-center group">
+                <div className="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <facility.icon className={`w-7 h-7 ${facility.color}`} aria-hidden="true" />
+                </div>
+                <h3 className="font-bold text-lg text-gray-900 mb-2">{facility.name}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{facility.description}</p>
+              </Card>
+            ))}
+          </div>
+
+          {/* Location Info */}
+          <div className="mt-16 text-center">
+            <Card variant="gradient" className="max-w-3xl mx-auto">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Lokasi Strategis</h3>
+              <p className="text-gray-700 mb-6">
+                Jl. K.H. Mama Oyon, Kp. Cihaur RT.04 RW.04, Cicantayan, Sukabumi, Jawa Barat
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 text-left">
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-gray-800">Akses Transportasi:</h4>
+                  <ul className="space-y-1 text-sm text-gray-600">
+                    <li>• Terminal Kota Sukabumi: 30 menit</li>
+                    <li>• Exit Tol Parungkuda (Bocimi): 50 menit</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-gray-800">Fasilitas Kesehatan:</h4>
+                  <ul className="space-y-1 text-sm text-gray-600">
+                    <li>• Puskesmas Cicantayan: 8 menit</li>
+                    <li>• RS Betha Medika: 15 menit</li>
+                  </ul>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 to-accent-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge variant="accent" size="lg" className="mb-4">
-              <Users className="w-4 h-4" />
-              Struktur Organisasi
+              <Award className="w-5 h-5" />
+              Prestasi Kami
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Kepemimpinan Kami
+              Pencapaian & Penghargaan
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Tim pengurus yang berpengalaman dan berdedikasi tinggi
+              Berbagai prestasi yang telah diraih pesantren
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {struktur.map((person, index) => (
-              <Card key={index} variant="shadow" className="text-center group hover:scale-105 transition-transform duration-300">
-                <div className={`w-32 h-32 ${person.photo} rounded-full mx-auto mb-4 flex items-center justify-center text-white text-4xl font-bold group-hover:scale-110 transition-transform`}>
-                  {person.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {achievements.map((achievement, index) => (
+              <Card key={index} variant="shadow" hover={true} className="text-center">
+                <div className={`w-16 h-16 ${achievement.color} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
+                  <achievement.icon className="w-8 h-8" aria-hidden="true" />
                 </div>
-                <h3 className="font-bold text-xl text-gray-800 mb-2">{person.name}</h3>
-                <Badge variant="primary" size="sm">{person.position}</Badge>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Fasilitas Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <Badge variant="primary" size="lg" className="mb-4">
-              <Building2 className="w-4 h-4" />
-              Fasilitas
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Fasilitas Lengkap & Modern
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Berbagai fasilitas penunjang untuk kenyamanan dan pembelajaran optimal santri
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {fasilitas.map((item, index) => (
-              <Card key={index} variant="default" className="group hover:scale-105 transition-transform duration-300">
-                <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <item.icon className="w-7 h-7 text-primary-500" />
-                </div>
-                <h3 className="font-bold text-xl text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
+                <Badge variant="neutral" size="sm" className="mb-3">{achievement.year}</Badge>
+                <h3 className="font-bold text-xl text-gray-900 mb-2">{achievement.title}</h3>
+                <p className="text-gray-600">{achievement.description}</p>
               </Card>
             ))}
           </div>
@@ -360,33 +346,12 @@ const Profil = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-500 to-primary-700 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
-        
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Ingin Tahu Lebih Lanjut?
-          </h2>
-          <p className="text-xl text-primary-100">
-            Kunjungi kami atau hubungi untuk informasi lebih detail tentang program dan pendaftaran
-          </p>
-          
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/pendaftaran" className="inline-block">
-              <button className="px-8 py-4 bg-accent-400 text-white rounded-lg font-medium hover:bg-accent-500 active:bg-accent-600 transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
-                Daftar Sekarang
-              </button>
-            </a>
-            <a href="/kontak" className="inline-block">
-              <button className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium border-2 border-white/20 transition-all duration-200 flex items-center justify-center gap-2">
-                Hubungi Kami
-              </button>
-            </a>
-          </div>
-        </div>
-      </section>
+      <CTASection 
+        title="Bergabunglah Bersama Kami"
+        description="Daftarkan putra-putri Anda di Pesantren Ulul Albaab Sukabumi untuk masa depan yang lebih cerah"
+        secondaryButtonText="Lihat Program"
+        secondaryButtonLink="/program"
+      />
 
     </div>
   );
