@@ -1,0 +1,56 @@
+# robots.txt for Pesantren Ulul Albaab Sukabumi
+# Website: https://www.alandalus-ululalbaab.com
+
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Disallow admin areas (jika ada)
+# Disallow: /admin/
+# Disallow: /api/
+
+# Disallow development/testing files
+Disallow: /*.json$
+Disallow: /test/
+Disallow: /dev/
+
+# Allow important pages
+Allow: /
+Allow: /profil
+Allow: /program
+Allow: /pendaftaran
+Allow: /kontak
+
+# Crawl-delay (optional, untuk menghindari overload)
+# Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://www.alandalus-ululalbaab.com/sitemap.xml
+
+# Specific rules for different bots
+
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /search
+
+# Google Images
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Yandex
+User-agent: Yandex
+Allow: /
+
+# Block bad bots (optional)
+# User-agent: BadBot
+# Disallow: /
+
+# Notes:
+# - Update Sitemap URL after deployment
+# - Keep this file in /public/ directory
+# - Test with Google Search Console
